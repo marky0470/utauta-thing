@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Inventory System</title>
+	
+	<link rel="stylesheet" type="text/css" href="styleInventory.css">
+	<style>
+		.highlight {
+			background-color: green;
+		}
+	</style>
+	<script>
+		function checkInput() {
+			var passwordInput = document.getElementById('password');
+			var loginButton = document.getElementById('loginButton');
+			
+			if (passwordInput.value !== '') {
+				loginButton.classList.add('highlight');
+			} else {
+				loginButton.classList.remove('highlight');
+			}
+		}
+
+		function submitForm(event) {
+			event.preventDefault(); // Prevent form submission
+
+			var usernameInput = document.getElementById('username');
+			var passwordInput = document.getElementById('password');
+
+			if (usernameInput.value !== '' && passwordInput.value !== '') {
+				// Perform form submission or any other action here
+				console.log('Username:', usernameInput.value);
+				console.log('Password:', passwordInput.value);
+			}
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<h1 class="logo">Bethel’s Chocolate Store</h1>   
+		<nav class="navigation">
+		</nav>
+	</header>
+
+	<div class="ribbon">
+		<h1>Inventory System</h1>
+	</div>
+
+	<div class="wrapper">
+        <div class="form-box login">
+            <h2>Login</h2>
+			<form action="InventorySystem.php" method="post">
+            <form onsubmit="submitForm(event)">
+                <div class="input-box">
+                    <input type="text" id="username" name="username" class="form-control" required placeholder="Username">
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon>
+                    </span>
+                    <input type="password" name="password" class="form-control" required placeholder="Password" id="password" oninput="checkInput()">
+                </div>
+                <button type="submit" class="btn" id="loginButton">Login</button>
+            </form>
+			</form>
+        </div>
+    </div>
+</body>
+</html>
